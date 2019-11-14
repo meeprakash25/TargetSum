@@ -59,10 +59,9 @@ class App extends React.Component {
   };
 
   UNSAFE_componentWillUpdate(nextProps, nextState) {
-    // console.log(nextState.selectedIds !== this.state.selectedIds);
     if (nextState.selectedIds !== this.state.selectedIds || nextState.remainingSeconds === 0) {
       this.gameStatus = this.calcGameStatus(nextState);
-      if (nextState.gameStatus !== 'PLAYING') {
+      if (this.gameStatus !== 'PLAYING') {
         clearInterval(this.intervalId);
       }
     }
@@ -161,7 +160,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'red'
   },
-  gameWon:{
+  gameWon: {
     fontSize: 30,
     marginTop: '10%',
     textAlign: 'center',
@@ -174,12 +173,12 @@ const styles = StyleSheet.create({
 
   STATUS_WON: {
     backgroundColor: 'green',
-    color:'white'
+    color: 'white'
   },
 
   STATUS_LOST: {
     backgroundColor: 'red',
-    color:'white'
+    color: 'white'
   }
 });
 
